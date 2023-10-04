@@ -16,7 +16,7 @@ function MyHeroSection() {
           </div>
         </div>
         <div className="col pt-2">
-          <img className="hero_section_img rounded-circle" src="./assets/immagine hero.png" alt="hero_image" />
+          <img className="hero_section_img" src="./assets/immagine hero2.png" alt="hero_image" />
         </div>
       </div>
     </Container>
