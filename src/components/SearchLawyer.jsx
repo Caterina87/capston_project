@@ -1,53 +1,19 @@
-import { Button, Card, Container } from "react-bootstrap";
+import { Container } from "react-bootstrap";
+import { PinAngle } from "react-bootstrap-icons";
 
 function SearchLawyer() {
   return (
     <Container>
-      <h2 className="text-center mt-5">Scegli il professionista in base alle tue esigenze</h2>
-      <p className="text-center">
-        Confronta i profili e risolvi il tuo problema legale velocemente con l'aiuto di un avvocato che ti seguirà passo
-        passo.
-      </p>
       <div className="row">
-        <div className="col">
-          <Card>
-            <Card.Img variant="top" src="./assets/avv1.jpg" />
-            <Card.Body>
-              <Card.Title>Nome e cognome</Card.Title>
-              <Card.Text>Breve descrizione delle caratteristiche del professonista</Card.Text>
-              <Button variant="secondary">Vai ai dettagli</Button>
-            </Card.Body>
-          </Card>
+        <div className="col-12 col-lg-6 align-self-center">
+          <h3 className="text-center my-3">Scegli il professionista in base alle tue esigenze</h3>
+          <p className="text-center">
+            <PinAngle className="fs-4 text-danger"></PinAngle> Confronta i profili e risolvi il tuo problema legale
+            velocemente con l'aiuto di un avvocato che ti seguirà passo passo.
+          </p>
         </div>
-        <div className="col">
-          <Card>
-            <Card.Img variant="top" src="./assets/avv2.jpg" />
-            <Card.Body>
-              <Card.Title>Nome e cognome</Card.Title>
-              <Card.Text>Breve descrizione delle caratteristiche del professonista</Card.Text>
-              <Button variant="secondary">Vai ai dettagli</Button>
-            </Card.Body>
-          </Card>
-        </div>
-        <div className="col">
-          <Card>
-            <Card.Img variant="top" src="./assets/avv3.jpg" />
-            <Card.Body>
-              <Card.Title>Nome e cognome</Card.Title>
-              <Card.Text>Breve descrizione delle caratteristiche del professonista</Card.Text>
-              <Button variant="secondary">Vai ai dettagli</Button>
-            </Card.Body>
-          </Card>
-        </div>
-        <div className="col">
-          <Card>
-            <Card.Img variant="top" src="./assets/avv4.jpg" />
-            <Card.Body>
-              <Card.Title>Nome e cognome</Card.Title>
-              <Card.Text>Breve descrizione delle caratteristiche del professonista</Card.Text>
-              <Button variant="secondary">Vai ai dettagli</Button>
-            </Card.Body>
-          </Card>
+        <div className="col-12 col-lg-6">
+          <img className="img-fluid" src="./assets/collage.png" alt="collage avvocati" />
         </div>
       </div>
     </Container>

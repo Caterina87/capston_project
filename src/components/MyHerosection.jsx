@@ -3,9 +3,9 @@ import { Container } from "react-bootstrap";
 
 function MyHeroSection() {
   return (
-    <Container id="hero_bg" className="d-flex">
-      <div className="row">
-        <div className="col-6 align-self-center">
+    <Container id="hero_bg" className="d-flex ">
+      <div className="row ">
+        <div className="col-12 col-lg-6 align-self-center">
           <h1 className="">L'avvocato a portata di click</h1>
           <p className="">
             Scegli il professionista che preferisci in base a ciò di cui hai bisogno e richiedi un preventivo gratuito
@@ -16,8 +16,8 @@ function MyHeroSection() {
             <Button variant="light">Scegli un avvocato</Button>{" "}
           </div>
         </div>
-        <div className="col-6">
-          <img className="hero_section_img" src="./assets/immagine hero2.png" alt="hero_image" />
+        <div className="col-12 col-lg-6">
+          <img className="hero_section_img img-fluid" src="./assets/immagine hero2.png" alt="hero_image" />
         </div>
       </div>
     </Container>

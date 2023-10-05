@@ -34,7 +34,7 @@ function MyFooter() {
             </ul>
           </div>
         </div>
-        <p className="text-center">&copy; Legal Advice- L'avvocato a portata di click. S.R.L. 2023</p>
+        <p className="text-center">&copy; Legalis- L'avvocato a portata di click. S.R.L. 2023</p>
       </Container>
     </footer>
   );
