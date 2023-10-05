@@ -1,6 +1,13 @@
+/* Homepage */
+
+#hero_bg {
+  background-color: #d3c3b3;
+}
+
 .hero_section_img {
-  max-width: 550px;
+  max-width: 650px;
   object-position: center;
   object-fit: cover;
   overflow: hidden;
+  opacity: 85%;
 }

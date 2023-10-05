@@ -6,7 +6,7 @@ function MyFooter() {
       <Container className=" bg-body-tertiary pt-4 ">
         <div className="row">
           <div className="col-4">
-            <p className="bg-body-tertiary fw-semibold">Legal Advice - L'avvocato a portata di click</p>
+            <p className="bg-body-tertiary fw-semibold">Legalis - L'avvocato a portata di click</p>
             <p className="bg-body-tertiary">
               Sede legale: Corso Italia 25 <br /> 00168 - Roma{" "}
             </p>

@@ -7,7 +7,7 @@ function MyNavbar() {
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
         <Navbar.Brand href="#home">
-          <img src="./assets/Legal advice.png" width="85" height="85" className="d-inline-block align-top" alt="Logo" />
+          <img src="./assets/Legalis.png" width="90" height="90" className="d-inline-block align-top" alt="Logo" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
