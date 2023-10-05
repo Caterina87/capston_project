@@ -1,5 +1,5 @@
 // Url delle Fetch
-const URL_LAWYERS = "";
+const URL_LAWYERS = "https://my-api-epicode-ebc661be151d.herokuapp.com/lawyers";
 
 // Costanti per le Action
 export const GET_LAWYERS = "GET_LAWYERS";
