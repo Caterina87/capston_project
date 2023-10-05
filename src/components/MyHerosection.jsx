@@ -1,7 +1,10 @@
 import { Button } from "react-bootstrap";
 import { Container } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 function MyHeroSection() {
+  const navigate = useNavigate;
+
   return (
     <Container id="hero_bg" className="d-flex ">
       <div className="row ">
@@ -12,8 +15,12 @@ function MyHeroSection() {
             oppure una consulenza in tempi rapidi.
           </p>
           <div className="mt-5">
-            <Button variant="secondary">Richiedi una consulenza</Button>{" "}
-            <Button variant="light">Scegli un avvocato</Button>{" "}
+            <Button variant="secondary me-2" onClick={() => navigate("/consulenza")}>
+              Richiedi una consulenza
+            </Button>{" "}
+            <Button variant="light" onClick={() => navigate("/avvocati")}>
+              Scegli un avvocato
+            </Button>{" "}
           </div>
         </div>
         <div className="col-12 col-lg-6">
