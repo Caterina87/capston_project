@@ -3,7 +3,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { useNavigate } from "react-router-dom";
 
-function MyNavbar() {
+const MyNavbar = () => {
   const navigate = useNavigate();
 
   return (
@@ -29,6 +29,6 @@ function MyNavbar() {
       </Container>
     </Navbar>
   );
-}
+};
 
 export default MyNavbar;

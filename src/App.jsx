@@ -14,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePageComp />} />
           <Route path="/avvocati" element={<CardComp />} />
+          {/* <Route path="/detail/:id" element={<ProfileMain />} /> */}
         </Routes>
         <MyFooter />
       </BrowserRouter>

@@ -1,6 +1,6 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 
-import getLawyers from "../reducers/index";
+import getLawyers from "../reducers/lawyers";
 
 import persistReducer from "redux-persist/es/persistReducer";
 import storage from "redux-persist/lib/storage";

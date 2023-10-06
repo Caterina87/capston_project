@@ -2,7 +2,7 @@ import { Button } from "react-bootstrap";
 import { Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
-function MyHeroSection() {
+const MyHeroSection = () => {
   const navigate = useNavigate;
 
   return (
@@ -29,5 +29,5 @@ function MyHeroSection() {
       </div>
     </Container>
   );
-}
+};
 export default MyHeroSection;

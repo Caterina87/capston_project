@@ -2,7 +2,7 @@ import MyHeroSection from "./MyHerosection";
 import SearchLawyer from "./SearchLawyer";
 import Service from "./Service";
 
-function HomePageComp() {
+const HomePageComp = () => {
   return (
     <>
       <MyHeroSection />
@@ -10,5 +10,5 @@ function HomePageComp() {
       <SearchLawyer />
     </>
   );
-}
+};
 export default HomePageComp;

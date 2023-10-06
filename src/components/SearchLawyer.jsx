@@ -1,7 +1,7 @@
 import { Container } from "react-bootstrap";
 import { PinAngle } from "react-bootstrap-icons";
 
-function SearchLawyer() {
+const SearchLawyer = () => {
   return (
     <Container>
       <div className="row">
@@ -18,5 +18,5 @@ function SearchLawyer() {
       </div>
     </Container>
   );
-}
+};
 export default SearchLawyer;

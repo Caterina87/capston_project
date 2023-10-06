@@ -1,7 +1,7 @@
 import { Container } from "react-bootstrap";
 import { Check2Circle } from "react-bootstrap-icons";
 
-function Service() {
+const Service = () => {
   return (
     <Container>
       <div className="row my-5 ">
@@ -30,5 +30,5 @@ function Service() {
       </div>
     </Container>
   );
-}
+};
 export default Service;

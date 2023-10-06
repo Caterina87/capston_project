@@ -1,6 +1,6 @@
 import { Container } from "react-bootstrap";
 
-function MyFooter() {
+const MyFooter = () => {
   return (
     <footer expand="lg" className="bg-body-tertiary">
       <Container className=" bg-body-tertiary pt-4 ">
@@ -38,6 +38,6 @@ function MyFooter() {
       </Container>
     </footer>
   );
-}
+};
 
 export default MyFooter;
