@@ -11,3 +11,7 @@
   opacity: 75%;
   border-radius: 55px;
 }
+
+/* input[type="radio"] :checked {
+  background-color: darkgrey;
+} */

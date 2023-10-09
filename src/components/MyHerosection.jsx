@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 const MyHeroSection = () => {
-  const navigate = useNavigate;
+  const navigate = useNavigate();
 
   return (
     <Container id="hero_bg" className="d-flex ">
