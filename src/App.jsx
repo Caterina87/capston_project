@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePageComp from "./components/HomePageComp";
 import CardComp from "./components/CardComp";
 import FormComp from "./components/FormComp";
+import CardDetails from "./components/CardDetails";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePageComp />} />
           <Route path="/avvocati" element={<CardComp />} />
-          {/* <Route path="/detail/:id" element={<ProfileMain />} /> */}
+          <Route path="/detail/:id" element={<CardDetails />} />
           <Route path="/consulenza" element={<FormComp />} />
         </Routes>
         <MyFooter />
