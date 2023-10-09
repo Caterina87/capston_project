@@ -3,6 +3,7 @@ import { GET_LAWYERS, GET_LAWYER } from "../action";
 const initialState = {
   content: [],
   isloading: true,
+  lawyer: null,
 };
 
 const getLawyers = (state = initialState, action) => {
@@ -15,7 +16,7 @@ const getLawyers = (state = initialState, action) => {
     case GET_LAWYER:
       return {
         ...state,
-        content: action.payload,
+        lawyer: action.payload[0],
       };
 
     default:
