@@ -7,10 +7,10 @@ const MyFooter = () => {
         <div className="row">
           <div className="col-4">
             <p className="bg-body-tertiary fw-semibold">Legalis - L'avvocato a portata di click</p>
-            <p className="bg-body-tertiary">
+            <p className="bg-body-tertiary d-none d-md-block">
               Sede legale: Corso Italia 25 <br /> 00168 - Roma{" "}
             </p>
-            <p className="bg-body-tertiary">Partita Iva: IT123456789 </p>
+            <p className="bg-body-tertiary d-none d-md-block">Partita Iva: IT123456789 </p>
           </div>
           <div className="col">
             <ul className="list-unstyled">
@@ -19,7 +19,7 @@ const MyFooter = () => {
               <li>Articoli</li>
             </ul>
           </div>
-          <div className="col">
+          <div className="col d-none d-sm-block">
             <ul className="list-unstyled">
               <li>Consulenza scritta</li>
               <li>Consulenza telefonica</li>
