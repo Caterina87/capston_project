@@ -12,11 +12,24 @@
   border-radius: 55px;
 }
 
-/* input[type="radio"] :checked {
+input[type="radio"]:checked {
   background-color: darkgrey;
-} */
+  border: 1px solid darkgray;
+}
+
+input[type="radio"]:focus {
+  outline: darkgray solid 1px;
+}
+
+input[type="radio"]:active {
+  outline: darkgray solid 1px;
+}
 
 #ImageDetailsLawyer {
   width: 150px;
   height: 180px;
+}
+
+.articleSelectedClass {
+  background-color: #d7e9fb;
 }

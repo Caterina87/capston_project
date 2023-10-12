@@ -56,7 +56,7 @@ const CardDetails = () => {
               </li>
               <li>
                 {" "}
-                <FileText className="me-2 fs-5 text-danger"></FileText> Preventivo gratuito
+                <FileText className="me-2 fs-5 text-danger"></FileText> Preventivo Gratuito
               </li>
             </ul>
           </Col>

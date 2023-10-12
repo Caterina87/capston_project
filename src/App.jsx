@@ -7,6 +7,7 @@ import HomePageComp from "./components/HomePageComp";
 import CardComp from "./components/CardComp";
 import FormComp from "./components/FormComp";
 import CardDetails from "./components/CardDetails";
+import ArticleComp from "./components/ArticlesComp";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/avvocati" element={<CardComp />} />
           <Route path="/detail/:id" element={<CardDetails />} />
           <Route path="/consulenza" element={<FormComp />} />
+          <Route path="/articoli" element={<ArticleComp />} />
         </Routes>
         <MyFooter />
       </BrowserRouter>
