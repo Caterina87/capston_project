@@ -25,13 +25,9 @@ const CardDetails = () => {
             <h5>{lawyer.qualification}</h5>
             <h6 className="my-5">Competenze</h6>
             <ul className="list-unstyled">
-              <li>Successioni, eredità e donazioni,</li>
-              <li>Condominio, Diritti reali proprietà, usufrutto, locazioni,</li>
-              <li>Responsabilità civile, professionale e assicurazioni,</li>
-              <li>Separazioni e Divorzi,</li>
-              <li>Diritto della crisi di impresa e della insolvenza,</li>
-              <li>Diritto bancario e dei mercati finanziari</li>
-              <li>Diritto commerciale e societario</li>
+              {lawyer.skills.map((skill, index) => (
+                <li key={index}> {skill} </li>
+              ))}
             </ul>
           </Col>
 
@@ -42,22 +38,30 @@ const CardDetails = () => {
             <p> {lawyer.biography}</p>
             <h6 className="mt-5 mb-3">Servizi offerti</h6>
             <ul className="list-unstyled lh-lg">
-              <li>
-                {" "}
-                <Pen className="me-2 fs-5 text-danger"></Pen> Consulenza Scritta{" "}
-              </li>
-              <li>
-                {" "}
-                <Telephone className="me-2 fs-5 text-danger"></Telephone> Consulenza Telefonica{" "}
-              </li>
-              <li>
-                {" "}
-                <PersonVideo3 className="me-2 fs-5 text-danger"></PersonVideo3> Consulenza in Videocall{" "}
-              </li>
-              <li>
-                {" "}
-                <FileText className="me-2 fs-5 text-danger"></FileText> Preventivo Gratuito
-              </li>
+              {lawyer.services.written && (
+                <li>
+                  {" "}
+                  <Pen className="me-2 fs-5 text-danger"></Pen> Consulenza Scritta{" "}
+                </li>
+              )}
+              {lawyer.services.call && (
+                <li>
+                  {" "}
+                  <Telephone className="me-2 fs-5 text-danger"></Telephone> Consulenza Telefonica{" "}
+                </li>
+              )}
+              {lawyer.services.videocall && (
+                <li>
+                  {" "}
+                  <PersonVideo3 className="me-2 fs-5 text-danger"></PersonVideo3> Consulenza in Videocall{" "}
+                </li>
+              )}
+              {lawyer.services.preventive && (
+                <li>
+                  {" "}
+                  <FileText className="me-2 fs-5 text-danger"></FileText> Preventivo Gratuito
+                </li>
+              )}
             </ul>
           </Col>
         </Row>
