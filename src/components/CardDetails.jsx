@@ -16,7 +16,7 @@ const CardDetails = () => {
 
   return (
     <>
-      <Image className="opacity-75 " src="../assets/pexels-bruno-cervera-1431324.jpg" fluid />
+      <Image className="d-none d-md-block opacity-75 " src="../assets/pexels-bruno-cervera-1431324.jpg" fluid />
       <Container className="my-5">
         <Row>
           <Col>
