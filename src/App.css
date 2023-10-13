@@ -31,5 +31,13 @@ input[type="radio"]:active {
 }
 
 .articleSelectedClass {
-  background-color: #d7e9fb;
+  border: 3px solid #decec1;
+  background-color: #f1e8e0;
+}
+
+.line-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }

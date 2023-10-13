@@ -22,9 +22,9 @@ const ArticleComp = () => {
 
   return (
     <>
-      <Image className="opacity-75 " src="../assets/pexels-cqfavocat-613508.jpg" fluid />
-      <Container className="d-flex mt-3" style={{ height: "calc(100vh - 104px)", overflow: "auto" }}>
-        <Col xs="12" md="5" style={{ height: "calc(100vh - 128px)", overflow: "auto" }}>
+      <Image className=" d-none d-md-block opacity-75 " src="../assets/pexels-pavel-danilyuk-8111853.jpg" fluid />
+      <Container className="d-block d-md-flex mt-3">
+        <Col md="5">
           {articles &&
             articles.map((article) => (
               <div key={article.id} onClick={() => handleArticle(article)}>
@@ -32,11 +32,11 @@ const ArticleComp = () => {
               </div>
             ))}
         </Col>
-        <Col xs="none" md="7" style={{ height: "calc(100vh - 128px)", overflow: "auto" }}>
+        <Col md="7">
           {selectedArticle ? (
             <ArticleListDescription article={selectedArticle} selectedArticle={selectedArticle} />
           ) : (
-            <h3 className="ps-5">Scegli una news per vedere la descrizione</h3>
+            <h4 className="ps-5 fw-semibold fst-italic ">Seleziona un articolo per scoprire i dettagli...</h4>
           )}
         </Col>
       </Container>
