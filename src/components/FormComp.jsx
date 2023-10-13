@@ -7,7 +7,7 @@ import Form from "react-bootstrap/Form";
 const FormComp = () => {
   return (
     <>
-      <Image className="opacity-75" src="../assets/pexels-karolina-grabowska-7876050.jpg" fluid />
+      <Image className="d-none d-md-block opacity-75" src="../assets/pexels-karolina-grabowska-7876050.jpg" fluid />
       <Container>
         <div className="text-center my-5">
           <h3 className="my-3">Chiedi supporto ai nostri esperti</h3>
