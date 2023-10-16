@@ -23,7 +23,7 @@ const CardComp = () => {
           del suo profilo
         </p>
       </div>
-      <Row xs={1} md={2} lg={3} className="g-4 my-4">
+      <Row className="sm-12 md-6 lg-4 gap-2 my-4 text-center">
         {lawyers.map((lawyer) => (
           <Card style={{ width: "20rem", padding: "0" }} key={lawyer.id}>
             <Card.Img className="object-cover" variant="top" src={`./assets/${lawyer.img}`} />
