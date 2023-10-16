@@ -1,4 +1,4 @@
-import { GET_LAWYERS, GET_LAWYER } from "../action";
+import { GET_LAWYERS, GET_LAWYER, STOP_LOADING_LAWYERS } from "../action";
 
 const initialState = {
   content: [],
@@ -17,6 +17,11 @@ const getLawyers = (state = initialState, action) => {
       return {
         ...state,
         lawyer: action.payload[0],
+      };
+    case STOP_LOADING_LAWYERS:
+      return {
+        ...state,
+        isloading: false,
       };
 
     default:

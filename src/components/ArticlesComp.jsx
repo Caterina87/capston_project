@@ -7,6 +7,7 @@ import { SELECTED_ARTICLE, getArticlesFetch } from "../redux/action";
 
 const ArticleComp = () => {
   const articles = useSelector((state) => state.getArticles?.content);
+  const isloading = useSelector((state) => state.getArticles?.isloading);
   const dispatch = useDispatch();
 
   useEffect(() => {

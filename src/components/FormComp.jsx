@@ -1,10 +1,31 @@
+import { useState } from "react";
 import { Col, Container, FloatingLabel, FormCheck, Image, Row } from "react-bootstrap";
-import { Check2All, Check2Square } from "react-bootstrap-icons";
+import { Check2Square } from "react-bootstrap-icons";
+import Alert from "react-bootstrap/Alert";
 
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { useDispatch, useSelector } from "react-redux";
+import { newAppointment } from "../redux/action";
 
 const FormComp = () => {
+  const dispatch = useDispatch();
+  const savedAppointment = useSelector((state) => state.appointmentReducer.savedAppointment);
+
+  const [appointment, setAppointment] = useState({
+    name: "",
+    suranme: "",
+    email: "",
+    phone: "",
+    object: "",
+    description: "",
+    type: "",
+  });
+
+  const handleChange = (propertyName, propertyValue) => {
+    setAppointment({ ...appointment, [propertyName]: propertyValue });
+  };
+
   return (
     <>
       <Image className="d-none d-md-block opacity-75" src="../assets/pexels-karolina-grabowska-7876050.jpg" fluid />
@@ -23,41 +44,112 @@ const FormComp = () => {
         <Row>
           <Col className="d-flex justify-content-center">
             <Form className="my-5">
+              {/* {savedAppointment && (
+                <Alert className="text-center" key="success" variant="success">
+                  Richiesta inviata con successo!
+                </Alert>
+              )} */}
               <Form.Group className="mb-3" controlId="formBasicName">
-                <Form.Label>Nome</Form.Label>
-                <Form.Control type="text" placeholder="Inserisci il tuo nome" />
+                <Form.Label>Nome *</Form.Label>
+                <Form.Control
+                  value={appointment.name}
+                  onChange={(e) => handleChange("name", e.target.value)}
+                  required
+                  type="text"
+                  placeholder="Inserisci il tuo nome"
+                />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicSurname">
-                <Form.Label>Cognome</Form.Label>
-                <Form.Control type="text" placeholder="Inserisci il tuo cognome" />
+                <Form.Label>Cognome *</Form.Label>
+                <Form.Control
+                  value={appointment.suranme}
+                  onChange={(e) => handleChange("suranme", e.target.value)}
+                  required
+                  type="text"
+                  placeholder="Inserisci il tuo cognome"
+                />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Indirizzo Email</Form.Label>
-                <Form.Control type="text" placeholder="Inscerisci la tua email" />
+                <Form.Label>Indirizzo Email *</Form.Label>
+                <Form.Control
+                  value={appointment.email}
+                  onChange={(e) => handleChange("email", e.target.value)}
+                  required
+                  type="text"
+                  placeholder="Inscerisci la tua email"
+                />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicPhone">
-                <Form.Label>Numero di telefono</Form.Label>
-                <Form.Control type="text" placeholder="Inserisci la tuo numero di telefono" />
+                <Form.Label>Numero di telefono *</Form.Label>
+                <Form.Control
+                  value={appointment.phone}
+                  onChange={(e) => handleChange("phone", e.target.value)}
+                  required
+                  type="text"
+                  placeholder="Inserisci la tuo numero di telefono"
+                />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicName">
-                <Form.Label>Oggetto</Form.Label>
-                <Form.Control type="text" placeholder="Inserisci un titolo riassuntivo" />
+                <Form.Label>Oggetto *</Form.Label>
+                <Form.Control
+                  value={appointment.object}
+                  onChange={(e) => handleChange("object", e.target.value)}
+                  required
+                  type="text"
+                  placeholder="Inserisci un titolo riassuntivo"
+                />
               </Form.Group>
-              <Form.Label>Descrizione</Form.Label>
+              <Form.Label>Descrizione *</Form.Label>
               <FloatingLabel controlId="floatingTextarea2">
-                <Form.Control as="textarea" placeholder="Descrivi il tuo caso" style={{ height: "100px" }} />
+                <Form.Control
+                  value={appointment.description}
+                  onChange={(e) => handleChange("description", e.target.value)}
+                  required
+                  as="textarea"
+                  placeholder="Descrivi il tuo caso"
+                  style={{ height: "100px" }}
+                />
               </FloatingLabel>
               <Form.Label className="mt-3">
                 {" "}
                 <Check2Square className="fs-5"></Check2Square> Scegli la tipologia di consulenza da richiedere
               </Form.Label>
               <br />
-              <FormCheck className="mt-3" inline type="radio" name="group1" label="Consulenza scritta"></FormCheck>
-              <FormCheck inline type="radio" name="group1" label="Consulenza telefonica"></FormCheck>
-              <FormCheck inline type="radio" name="group1" label="Consulenza in videocall"></FormCheck>
-              <FormCheck inline type="radio" name="group1" label="Preventivo gratuito"></FormCheck>
+              <FormCheck
+                className="mt-3"
+                inline
+                type="radio"
+                value="scritta"
+                name="group1"
+                label="Consulenza scritta"
+              ></FormCheck>
+              <FormCheck inline type="radio" value="telefonica" name="group1" label="Consulenza telefonica"></FormCheck>
+              <FormCheck
+                inline
+                type="radio"
+                value="videocall"
+                name="group1"
+                label="Consulenza in videocall"
+              ></FormCheck>
+              <FormCheck inline type="radio" value="preventivo" name="group1" label="Preventivo gratuito"></FormCheck>
               <br />
-              <Button className="mt-5" variant="secondary" type="submit">
+              <Button
+                className="mt-5"
+                variant="secondary"
+                onClick={(e) => {
+                  dispatch(newAppointment(appointment));
+                  e.preventDefault();
+                  setAppointment({
+                    name: "",
+                    suranme: "",
+                    email: "",
+                    phone: "",
+                    object: "",
+                    description: "",
+                    type: "",
+                  });
+                }}
+              >
                 Invia la richiesta
               </Button>
             </Form>

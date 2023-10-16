@@ -1,11 +1,12 @@
 import { useEffect } from "react";
-import { Button, Card, Container, Row } from "react-bootstrap";
+import { Button, Card, Container, Row, Spinner } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { getLawyersFetch } from "../redux/action";
 import { useNavigate } from "react-router-dom";
 
 const CardComp = () => {
   const lawyers = useSelector((state) => state.getLawyers.content);
+  const isLoading = useSelector((state) => state.getLawyers.isLoading);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -24,18 +25,24 @@ const CardComp = () => {
         </p>
       </div>
       <Row className="sm-12 md-6 lg-4 gap-2 my-4 text-center">
-        {lawyers.map((lawyer) => (
-          <Card style={{ width: "20rem", padding: "0" }} key={lawyer.id}>
-            <Card.Img className="object-cover" variant="top" src={`./assets/${lawyer.img}`} />
-            <Card.Body>
-              <Card.Title>{lawyer.name}</Card.Title>
-              <Card.Text>{lawyer.qualification}</Card.Text>
-              <Button variant="secondary" onClick={() => navigate(`/detail/${lawyer.id}`)}>
-                Vai ai dettagli
-              </Button>
-            </Card.Body>
-          </Card>
-        ))}
+        {isLoading ? (
+          <div className="text-center mt-3">
+            <Spinner variant="success" />
+          </div>
+        ) : (
+          lawyers.map((lawyer) => (
+            <Card style={{ width: "20rem", padding: "0" }} key={lawyer.id}>
+              <Card.Img className="object-cover" variant="top" src={`./assets/${lawyer.img}`} />
+              <Card.Body>
+                <Card.Title>{lawyer.name}</Card.Title>
+                <Card.Text>{lawyer.qualification}</Card.Text>
+                <Button variant="secondary" onClick={() => navigate(`/detail/${lawyer.id}`)}>
+                  Vai ai dettagli
+                </Button>
+              </Card.Body>
+            </Card>
+          ))
+        )}
       </Row>
     </Container>
   );
