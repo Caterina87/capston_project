@@ -1,4 +1,4 @@
-import { NEW_APPOINTMENT_OK } from "../action";
+import { NEW_APPOINTMENT_KO, NEW_APPOINTMENT_OK } from "../action";
 
 const initialState = {
   savedAppointment: false,
@@ -7,6 +7,11 @@ const initialState = {
 const appointmentReducer = (state = initialState, action) => {
   switch (action.type) {
     case NEW_APPOINTMENT_OK:
+      return {
+        ...state,
+        savedAppointment: action.payload,
+      };
+    case NEW_APPOINTMENT_KO:
       return {
         ...state,
         savedAppointment: action.payload,

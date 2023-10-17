@@ -7,7 +7,7 @@ const ArticleListDescription = (props) => {
 
   return (
     <Container>
-      <Image src="../assets/pexels-julio-nery-1687147.jpg" fluid rounded />
+      <Image src={`../assets/${props.article?.img}`} fluid rounded />
       <div className=" my-2 ms-3 p-2">
         <h3 className="mb-3" style={{ fontSize: "27px" }}>
           {props.article?.title}

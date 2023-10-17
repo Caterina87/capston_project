@@ -44,11 +44,11 @@ const FormComp = () => {
         <Row>
           <Col className="d-flex justify-content-center">
             <Form className="my-5">
-              {/* {savedAppointment && (
+              {savedAppointment && (
                 <Alert className="text-center" key="success" variant="success">
                   Richiesta inviata con successo!
                 </Alert>
-              )}  */}
+              )}
               <Form.Group className="mb-3" controlId="formBasicName">
                 <Form.Label>
                   Nome <span className="text-danger">*</span>
