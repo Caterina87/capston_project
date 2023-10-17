@@ -48,9 +48,11 @@ const FormComp = () => {
                 <Alert className="text-center" key="success" variant="success">
                   Richiesta inviata con successo!
                 </Alert>
-              )} */}
+              )}  */}
               <Form.Group className="mb-3" controlId="formBasicName">
-                <Form.Label>Nome *</Form.Label>
+                <Form.Label>
+                  Nome <span className="text-danger">*</span>
+                </Form.Label>
                 <Form.Control
                   value={appointment.name}
                   onChange={(e) => handleChange("name", e.target.value)}
@@ -60,7 +62,9 @@ const FormComp = () => {
                 />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicSurname">
-                <Form.Label>Cognome *</Form.Label>
+                <Form.Label>
+                  Cognome <span className="text-danger">*</span>
+                </Form.Label>
                 <Form.Control
                   value={appointment.suranme}
                   onChange={(e) => handleChange("suranme", e.target.value)}
@@ -70,7 +74,9 @@ const FormComp = () => {
                 />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Indirizzo Email *</Form.Label>
+                <Form.Label>
+                  Indirizzo Email <span className="text-danger">*</span>
+                </Form.Label>
                 <Form.Control
                   value={appointment.email}
                   onChange={(e) => handleChange("email", e.target.value)}
@@ -80,7 +86,9 @@ const FormComp = () => {
                 />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicPhone">
-                <Form.Label>Numero di telefono *</Form.Label>
+                <Form.Label>
+                  Numero di telefono <span className="text-danger">*</span>
+                </Form.Label>
                 <Form.Control
                   value={appointment.phone}
                   onChange={(e) => handleChange("phone", e.target.value)}
@@ -90,7 +98,9 @@ const FormComp = () => {
                 />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicName">
-                <Form.Label>Oggetto *</Form.Label>
+                <Form.Label>
+                  Oggetto <span className="text-danger">*</span>
+                </Form.Label>
                 <Form.Control
                   value={appointment.object}
                   onChange={(e) => handleChange("object", e.target.value)}
@@ -99,7 +109,9 @@ const FormComp = () => {
                   placeholder="Inserisci un titolo riassuntivo"
                 />
               </Form.Group>
-              <Form.Label>Descrizione *</Form.Label>
+              <Form.Label>
+                Descrizione <span className="text-danger">*</span>
+              </Form.Label>
               <FloatingLabel controlId="floatingTextarea2">
                 <Form.Control
                   value={appointment.description}
