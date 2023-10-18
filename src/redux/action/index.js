@@ -3,7 +3,7 @@ const URL_LAWYERS = "https://my-api-epicode-ebc661be151d.herokuapp.com/lawyers";
 const URL_LAWYER = "https://my-api-epicode-ebc661be151d.herokuapp.com/lawyers?id=";
 const URL_ARTICLES = "https://my-api-epicode-ebc661be151d.herokuapp.com/articles";
 const URL_APPOINTMENTS = "https://my-api-epicode-ebc661be151d.herokuapp.com/appointments";
-//const URL_APPOINTMENTS = "https://my-api-epicode-ebc661be151d.herokuapp.com/appointments";
+const URL_USER = "https://my-api-epicode-ebc661be151d.herokuapp.com/users?username=";
 
 // Costanti per le Action
 export const GET_LAWYERS = "GET_LAWYERS";
@@ -16,6 +16,7 @@ export const STOP_LOADING_ARTICLES = "STOP_LOADING_ARTICLES";
 export const NEW_APPOINTMENT = "NEW_APPOINTMENT";
 export const NEW_APPOINTMENT_OK = "NEW_APPOINTMENT_OK";
 export const NEW_APPOINTMENT_KO = "NEW_APPOINTMENT_KO";
+export const GET_USER = "GET_USER";
 
 // Action
 // Lista di tutti gli avvocati
@@ -70,6 +71,19 @@ export const newAppointment = (appointment) => {
     if (response.ok) {
       // dispatch({ type: NEW_APPOINTMENT, payload: appointment });
       dispatch({ type: NEW_APPOINTMENT_OK, payload: true });
+    }
+  };
+};
+
+// Chiamata per un specifico user (i)
+export const getUser = (username) => {
+  return async (dispatch, getState) => {
+    const response = await fetch(URL_USER + username);
+    if (response.ok) {
+      const data = await response.json();
+      dispatch({ type: GET_USER, payload: data });
+      //dispatch({ type: NEW_APPOINTMENT_KO, payload: false });
+      // dispatch({ type: STOP_LOADING_LAWYER, payload: false });
     }
   };
 };

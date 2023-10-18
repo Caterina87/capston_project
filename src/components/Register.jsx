@@ -1,29 +1,30 @@
 import { useState } from "react";
-import { Container } from "react-bootstrap";
+import { Alert, Container } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 
 const Register = () => {
-  const [id, idchange] = useState("");
+  const [username, idchange] = useState("");
   const [name, namechange] = useState("");
   const [password, passwordchange] = useState("");
   const [email, emailchange] = useState("");
   const [phone, phonechange] = useState("");
-  const [country, countrychange] = useState("india");
   const [address, addresschange] = useState("");
-  const [gender, genderchange] = useState("female");
+  const [isproceed, setIsproceed] = useState(true);
+  const [errormessage, setErrormessage] = useState("");
+  const [saveOk, setSaveOk] = useState(false);
 
   const navigate = useNavigate();
 
   const IsValidate = () => {
     let isproceed = true;
-    let errormessage = "Please enter the value in ";
-    if (id === null || id === "") {
+    let errormessage = "Inserisci un valore in ";
+    if (username === null || username === "") {
       isproceed = false;
       errormessage += " Username";
     }
     if (name === null || name === "") {
       isproceed = false;
-      errormessage += " Fullname";
+      errormessage += " Nome";
     }
     if (password === null || password === "") {
       isproceed = false;
@@ -36,10 +37,13 @@ const Register = () => {
 
     if (!isproceed) {
       //toast.warning(errormessage);
+      setIsproceed(false);
+      setErrormessage(errormessage);
     } else {
       if (/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(email)) {
       } else {
         isproceed = false;
+        setErrormessage("Inserisci una mail valida");
         //toast.warning("Please enter the valid email");
       }
     }
@@ -48,16 +52,18 @@ const Register = () => {
 
   const handlesubmit = (e) => {
     e.preventDefault();
-    let regobj = { id, name, password, email, phone, country, address, gender };
+    let regobj = { username, name, password, email, phone, address };
     if (IsValidate()) {
       //console.log(regobj);
-      fetch("http://localhost:8000/user", {
+      fetch("https://my-api-epicode-ebc661be151d.herokuapp.com/users", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(regobj),
       })
         .then((res) => {
-          //toast.success("Registered successfully.");
+          //setSaveOk(true);
+          //regobj.name = "";
+
           navigate("/login");
         })
         .catch((err) => {
@@ -72,7 +78,7 @@ const Register = () => {
           <form className="container" onSubmit={handlesubmit}>
             <div className="card">
               <div className="card-header">
-                <h1>User Registeration</h1>
+                <h1>Registrazione nuovo utente</h1>
               </div>
               <div className="card-body">
                 <div className="row">
@@ -81,7 +87,11 @@ const Register = () => {
                       <label>
                         User Name <span className="errmsg">*</span>
                       </label>
-                      <input value={id} onChange={(e) => idchange(e.target.value)} className="form-control"></input>
+                      <input
+                        value={username}
+                        onChange={(e) => idchange(e.target.value)}
+                        className="form-control"
+                      ></input>
                     </div>
                   </div>
                   <div className="col-lg-6">
@@ -100,7 +110,7 @@ const Register = () => {
                   <div className="col-lg-6">
                     <div className="form-group">
                       <label>
-                        Full Name <span className="errmsg">*</span>
+                        Nome <span className="errmsg">*</span>
                       </label>
                       <input value={name} onChange={(e) => namechange(e.target.value)} className="form-control"></input>
                     </div>
@@ -120,7 +130,7 @@ const Register = () => {
                   <div className="col-lg-6">
                     <div className="form-group">
                       <label>
-                        Phone <span className="errmsg"></span>
+                        Telefono <span className="errmsg"></span>
                       </label>
                       <input
                         value={phone}
@@ -129,7 +139,7 @@ const Register = () => {
                       ></input>
                     </div>
                   </div>
-                  <div className="col-lg-6">
+                  {/* <div className="col-lg-6">
                     <div className="form-group">
                       <label>
                         Country <span className="errmsg">*</span>
@@ -140,10 +150,10 @@ const Register = () => {
                         <option value="singapore">Singapore</option>
                       </select>
                     </div>
-                  </div>
+                  </div> */}
                   <div className="col-lg-12">
                     <div className="form-group">
-                      <label>Address</label>
+                      <label>Indirizzo</label>
                       <textarea
                         value={address}
                         onChange={(e) => addresschange(e.target.value)}
@@ -151,40 +161,25 @@ const Register = () => {
                       ></textarea>
                     </div>
                   </div>
-                  <div className="col-lg-6">
-                    <div className="form-group">
-                      <label>Gender</label>
-                      <br></br>
-                      <input
-                        type="radio"
-                        checked={gender === "male"}
-                        onChange={(e) => genderchange(e.target.value)}
-                        name="gender"
-                        value="male"
-                        className="app-check"
-                      ></input>
-                      <label>Male</label>
-                      <input
-                        type="radio"
-                        checked={gender === "female"}
-                        onChange={(e) => genderchange(e.target.value)}
-                        name="gender"
-                        value="female"
-                        className="app-check"
-                      ></input>
-                      <label>Female</label>
-                    </div>
-                  </div>
                 </div>
               </div>
               <div className="card-footer">
-                <button type="submit" className="btn btn-primary">
-                  Register
-                </button>{" "}
-                |
+                <button type="submit" className="btn btn-primary mx-3">
+                  Salva
+                </button>
                 <Link to={"/login"} className="btn btn-danger">
-                  Close
-                </Link>
+                  Login
+                </Link>{" "}
+                {!isproceed && (
+                  <Alert className="text-center mx-5 my-2 " key="success" variant="danger">
+                    {errormessage}
+                  </Alert>
+                )}
+                {saveOk && (
+                  <Alert className="text-center mx-5 my-2 " key="success" variant="success">
+                    Salvataggio avvenuto con successo.
+                  </Alert>
+                )}
               </div>
             </div>
           </form>

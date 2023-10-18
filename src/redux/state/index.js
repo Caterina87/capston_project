@@ -7,11 +7,13 @@ import storage from "redux-persist/lib/storage";
 import persistStore from "redux-persist/es/persistStore";
 import getArticles from "../reducers/articles";
 import appointmentReducer from "../reducers/appointments";
+import userReducer from "../reducers/users";
 
 const rootReducer = combineReducers({
   getLawyers: getLawyers,
   getArticles: getArticles,
   appointmentReducer: appointmentReducer,
+  userReducer: userReducer,
 });
 
 const persistConfig = { key: "root", storage };

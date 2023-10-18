@@ -1,11 +1,16 @@
 import { useEffect, useState } from "react";
-import { Container } from "react-bootstrap";
+import { Alert, Container } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import { getUser } from "../redux/action";
 // import { toast } from "react-toastify";
 
 const Login = () => {
   const [username, usernameupdate] = useState("");
   const [password, passwordupdate] = useState("");
+  //const [validated, setValidated] = useState(false);
+  //const dispatch = useDispatch();
+  const [valid, setValid] = useState(true);
 
   const usenavigate = useNavigate();
 
@@ -16,25 +21,17 @@ const Login = () => {
   const ProceedLogin = (e) => {
     e.preventDefault();
     if (validate()) {
-      ///implentation
-      // console.log('proceed');
-      fetch("http://localhost:8000/user/" + username)
+      fetch("https://my-api-epicode-ebc661be151d.herokuapp.com/users?username=" + username)
         .then((res) => {
           return res.json();
         })
         .then((resp) => {
-          //console.log(resp)
-          if (Object.keys(resp).length === 0) {
-            // toast.error("Please Enter valid username");
+          if (Object.keys(resp).length >= 1 && resp[0].password === password) {
+            sessionStorage.setItem("username", username);
+            usenavigate("/articoliAdmin");
           } else {
-            if (resp.password === password) {
-              //toast.success("Success");
-              sessionStorage.setItem("username", username);
-              sessionStorage.setItem("userrole", resp.role);
-              usenavigate("/articoliAdmin");
-            } else {
-              //toast.error("Please Enter valid credentials");
-            }
+            console.log("sono  qui");
+            setValid(false);
           }
         })
         .catch((err) => {
@@ -47,11 +44,11 @@ const Login = () => {
     let result = true;
     if (username === "" || username === null) {
       result = false;
-      //toast.warning("Please Enter Username");
+      setValid(false);
     }
     if (password === "" || password === null) {
       result = false;
-      //toast.warning("Please Enter Password");
+      setValid(false);
     }
     return result;
   };
@@ -62,7 +59,7 @@ const Login = () => {
           <form onSubmit={ProceedLogin} className="container">
             <div className="card">
               <div className="card-header">
-                <h2>User Login</h2>
+                <h2>Accesso Area Privata </h2>
               </div>
               <div className="card-body">
                 <div className="form-group">
@@ -88,13 +85,17 @@ const Login = () => {
                 </div>
               </div>
               <div className="card-footer">
-                <button type="submit" className="btn btn-primary">
+                <button type="submit" className="btn btn-primary mx-3">
                   Login
-                </button>{" "}
-                |
+                </button>
                 <Link className="btn btn-success" to={"/register"}>
-                  New User
+                  Nuovo Utente
                 </Link>
+                {!valid && (
+                  <Alert className="text-center mx-5 my-2 " key="success" variant="danger">
+                    Username e/o Password errati!
+                  </Alert>
+                )}
               </div>
             </div>
           </form>

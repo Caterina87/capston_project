@@ -32,8 +32,8 @@ const ArticlesAdmin = () => {
       showmenuupdateupdate(true);
       let username = sessionStorage.getItem("username");
       if (username === "" || username === null) {
-        //usenavigate("/login");
-        displayusernameupdate(username);
+        usenavigate("/login");
+        //displayusernameupdate(username);
       } else {
         displayusernameupdate(username);
       }
