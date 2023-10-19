@@ -56,14 +56,14 @@ const Login = () => {
     <Container>
       <div className="row">
         <div className="offset-lg-3 col-lg-6" style={{ marginTop: "100px" }}>
-          <form onSubmit={ProceedLogin} className="container">
+          <form onSubmit={ProceedLogin} className="container mb-5">
             <div className="card">
               <div className="card-header">
-                <h2>Accesso Area Privata </h2>
+                <h2 className="fw-semibold">Accesso Area Privata </h2>
               </div>
               <div className="card-body">
-                <div className="form-group">
-                  <label>
+                <div className="form-group mb-2">
+                  <label className="mb-1">
                     User Name <span className="errmsg">*</span>
                   </label>
                   <input
@@ -72,8 +72,8 @@ const Login = () => {
                     className="form-control"
                   ></input>
                 </div>
-                <div className="form-group">
-                  <label>
+                <div className="form-group mb-2">
+                  <label className="mb-1">
                     Password <span className="errmsg">*</span>
                   </label>
                   <input
@@ -85,10 +85,10 @@ const Login = () => {
                 </div>
               </div>
               <div className="card-footer">
-                <button type="submit" className="btn btn-primary mx-3">
+                <button type="submit" className="btn btn-outline-primary mx-3">
                   Login
                 </button>
-                <Link className="btn btn-success" to={"/register"}>
+                <Link className="btn btn-outline-success" to={"/register"}>
                   Nuovo Utente
                 </Link>
                 {!valid && (

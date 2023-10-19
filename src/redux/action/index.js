@@ -17,6 +17,9 @@ export const NEW_APPOINTMENT = "NEW_APPOINTMENT";
 export const NEW_APPOINTMENT_OK = "NEW_APPOINTMENT_OK";
 export const NEW_APPOINTMENT_KO = "NEW_APPOINTMENT_KO";
 export const GET_USER = "GET_USER";
+export const NEW_ARTICLE = "NEW_ARTICLE";
+export const NEW_ARTICLE_OK = "NEW_ARTICLE_OK";
+export const DELETE_ARTICLE = "DELETE_ARTICLE";
 
 // Action
 // Lista di tutti gli avvocati
@@ -84,6 +87,52 @@ export const getUser = (username) => {
       dispatch({ type: GET_USER, payload: data });
       //dispatch({ type: NEW_APPOINTMENT_KO, payload: false });
       // dispatch({ type: STOP_LOADING_LAWYER, payload: false });
+    }
+  };
+};
+// Modifica di uno specifico articolo lato admin
+export const articleMod = (article) => {
+  return async (dispatch, getState) => {
+    const response = await fetch(URL_ARTICLES + "/" + article.id, {
+      method: "PUT",
+      body: JSON.stringify(article),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (response.ok) {
+      //dispatch({ type: DELETE_MY_EXPERIENCES, payload: experiences._id });
+      //dispatch({ type: POST_MY_EXPERIENCES, payload: experiences });
+    }
+  };
+};
+
+// Salvataggio nuovo articolo inserito da Admin
+export const saveNewArticle = (article) => {
+  return async (dispatch, getState) => {
+    const response = await fetch(URL_ARTICLES, {
+      method: "POST",
+      body: JSON.stringify(article),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (response.ok) {
+      // dispatch({ type: NEW_ARTICLE, payload: article });
+      dispatch({ type: NEW_ARTICLE_OK, payload: true });
+    }
+  };
+};
+
+// Elimina articolo lato admin
+export const deleteArticle = (id) => {
+  return async (dispatch, getState) => {
+    const response = await fetch(URL_ARTICLES + "/" + id, {
+      method: "DELETE",
+    });
+    if (response.ok) {
+      // dispatch({ type: NEW_APPOINTMENT, payload: appointment });
+      // dispatch({ type: NEW_APPOINTMENT_OK, payload: true });
     }
   };
 };

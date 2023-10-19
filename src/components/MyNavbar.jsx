@@ -1,3 +1,5 @@
+import { Button } from "react-bootstrap";
+import { Lock, PersonFill, PersonLock } from "react-bootstrap-icons";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -14,7 +16,7 @@ const MyNavbar = () => {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto fs-6 fw-semibold">
+          <Nav className=" fs-6 fw-semibold">
             <Nav.Link to="#link" onClick={() => navigate("/consulenza")}>
               Richiedi una consulenza
             </Nav.Link>
@@ -25,6 +27,11 @@ const MyNavbar = () => {
               Articoli
             </Nav.Link>
           </Nav>
+          <Nav.Link className="text-success ms-auto " to="#link" onClick={() => navigate("/login")}>
+            <Button variant="secondary fw-semibold">
+              Accedi <PersonFill className="ms-1 fs-5 text-white"></PersonFill>
+            </Button>
+          </Nav.Link>
         </Navbar.Collapse>
       </Container>
     </Navbar>
