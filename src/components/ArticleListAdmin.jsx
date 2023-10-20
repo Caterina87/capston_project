@@ -262,7 +262,7 @@ const ArticleListAdmin = (props) => {
         </Modal.Footer>
       </Modal>
       {/* Fine Modale */}
-      {/* Alert prima della cancellazione */}
+      {/* Modale prima della cancellazione */}
       <Modal show={show3} onHide={handleShowDelete}>
         <Modal.Header closeButton>
           <Modal.Title>Attenzione</Modal.Title>

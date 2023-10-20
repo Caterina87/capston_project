@@ -56,9 +56,9 @@ const FormComp = () => {
                 <Form.Control
                   value={appointment.name}
                   onChange={(e) => handleChange("name", e.target.value)}
-                  required
                   type="text"
                   placeholder="Inserisci il tuo nome"
+                  required
                 />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicSurname">
@@ -81,7 +81,7 @@ const FormComp = () => {
                   value={appointment.email}
                   onChange={(e) => handleChange("email", e.target.value)}
                   required
-                  type="text"
+                  type="email"
                   placeholder="Inscerisci la tua email"
                 />
               </Form.Group>
@@ -93,7 +93,7 @@ const FormComp = () => {
                   value={appointment.phone}
                   onChange={(e) => handleChange("phone", e.target.value)}
                   required
-                  type="text"
+                  type="phone"
                   placeholder="Inserisci la tuo numero di telefono"
                 />
               </Form.Group>

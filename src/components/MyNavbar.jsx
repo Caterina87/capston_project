@@ -1,5 +1,5 @@
 import { Button } from "react-bootstrap";
-import { Lock, PersonFill, PersonLock } from "react-bootstrap-icons";
+import { PersonFill } from "react-bootstrap-icons";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";

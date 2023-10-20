@@ -1,4 +1,5 @@
 import { Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const MyFooter = () => {
   return (
@@ -14,9 +15,23 @@ const MyFooter = () => {
           </div>
           <div className="col">
             <ul className="list-unstyled">
-              <li>Richiedi una consulenza</li>
-              <li>Cerca un avvocato</li>
-              <li>Articoli</li>
+              <li>
+                {" "}
+                <Link to="/consulenza" className="text-decoration-none text-dark">
+                  {" "}
+                  Richiedi una consulenza
+                </Link>
+              </li>
+              <li>
+                <Link to="/avvocati" className="text-decoration-none text-dark ">
+                  Cerca un avvocato{" "}
+                </Link>{" "}
+              </li>
+              <li>
+                <Link to="/articoli" className="text-decoration-none text-dark">
+                  Articoli
+                </Link>
+              </li>
             </ul>
           </div>
           <div className="col d-none d-sm-block">
