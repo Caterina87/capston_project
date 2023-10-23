@@ -20,6 +20,7 @@ export const GET_USER = "GET_USER";
 export const NEW_ARTICLE = "NEW_ARTICLE";
 export const NEW_ARTICLE_OK = "NEW_ARTICLE_OK";
 export const DELETE_ARTICLE = "DELETE_ARTICLE";
+export const DELETE_ARTICLE_OK = "DELETE_ARTICLE_OK";
 
 // Action
 // Lista di tutti gli avvocati
@@ -131,8 +132,7 @@ export const deleteArticle = (id) => {
       method: "DELETE",
     });
     if (response.ok) {
-      // dispatch({ type: NEW_APPOINTMENT, payload: appointment });
-      // dispatch({ type: NEW_APPOINTMENT_OK, payload: true });
+      dispatch({ type: DELETE_ARTICLE_OK, payload: id });
     }
   };
 };

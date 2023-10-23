@@ -12,7 +12,7 @@ const ArticleList = (props) => {
       }
     >
       <div>
-        <Image src={`./assets/${props.article.img}`} width={"60px"} height={"60px"}></Image>
+        <Image src={`./assets/articoli/${props.article.img}`} width={"60px"} height={"60px"}></Image>
       </div>
       <div className="ms-3 line-clamp mb-2">
         <h3 style={{ fontSize: "16px", fontWeight: "500" }} className=" mb-2">

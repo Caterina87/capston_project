@@ -1,9 +1,10 @@
-import { GET_ARTICLES, SELECTED_ARTICLE } from "../action";
+import { DELETE_ARTICLE_OK, GET_ARTICLES, SELECTED_ARTICLE } from "../action";
 
 const initialState = {
   content: [],
   isloading: true,
   selectedArticle: "",
+  deletedArticleId: "",
 };
 
 const getArticles = (state = initialState, action) => {
@@ -17,6 +18,12 @@ const getArticles = (state = initialState, action) => {
       return {
         ...state,
         selectedArticle: action.payload,
+      };
+
+    case DELETE_ARTICLE_OK:
+      return {
+        ...state,
+        deletedArticleId: action.payload,
       };
 
     default:

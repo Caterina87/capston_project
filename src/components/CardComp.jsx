@@ -31,9 +31,14 @@ const CardComp = () => {
           </div>
         ) : (
           lawyers.map((lawyer) => (
-            <Card style={{ width: "20rem", padding: "0" }} key={lawyer.id}>
-              <Card.Img className="object-cover" variant="top" src={`./assets/${lawyer.img}`} />
-              <Card.Body>
+            <Card style={{ width: "18rem", padding: "0" }} key={lawyer.id}>
+              <Card.Img
+                style={{ height: "24rem", padding: "0" }}
+                className="object-cover"
+                variant="top"
+                src={`./assets/${lawyer.img}`}
+              />
+              <Card.Body style={{ height: "9rem", padding: "10px" }}>
                 <Card.Title>{lawyer.name}</Card.Title>
                 <Card.Text>{lawyer.qualification}</Card.Text>
                 <Button variant="secondary" onClick={() => navigate(`/detail/${lawyer.id}`)}>

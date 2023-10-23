@@ -1,8 +1,11 @@
 /* Homepage */
 
+img {
+  object-fit: cover;
+}
+
 .hero_section_img {
   object-position: center;
-  object-fit: cover;
   overflow: hidden;
   opacity: 85%;
 }

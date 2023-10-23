@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button, Container, Image, Modal, Form, Alert } from "react-bootstrap";
 import { Pencil, PlusLg, Trash3 } from "react-bootstrap-icons";
 import { useDispatch, useSelector } from "react-redux";
-import { articleMod, deleteArticle, getArticlesFetch, saveNewArticle } from "../redux/action";
+import { SELECTED_ARTICLE, articleMod, deleteArticle, getArticlesFetch, saveNewArticle } from "../redux/action";
 
 const ArticleListAdmin = (props) => {
   //const articles = useSelector((state) => state.getArticles?.content);
@@ -58,8 +58,11 @@ const ArticleListAdmin = (props) => {
   const handleDelete = () => {
     setCanceled(true);
     dispatch(deleteArticle(props.article.id));
+
     //setSaved(false);
-    // dispatch(getArticlesFetch());
+    //dispatch(getArticlesFetch());
+    // dispatch({ type: SELECTED_ARTICLE, payload: articles[0] });
+    //dispatch(getArticlesFetch());
   };
 
   const handleShowDelete = () => {
@@ -80,14 +83,12 @@ const ArticleListAdmin = (props) => {
         isArticleSelected.id === props.article.id ? "d-flex  my-2 p-2 articleSelectedClass" : "d-flex  my-2 p-2"
       }
     >
-      {" "}
       <div>
-        <Image src={`./assets/${props.article.img}`} width={"60px"} height={"60px"}></Image>
+        <Image src={`./assets/articoli/${props.article.img}`} width={"60px"} height={"60px"}></Image>
       </div>
       <div className="ms-3 line-clamp mb-2">
         <p className="text-end">
           <Pencil className="mx-2" onClick={handleShow}></Pencil>
-          <PlusLg className="mx-2 fs-5 text-success " onClick={setShow2}></PlusLg>
           <Trash3 className="mx-2 text-danger" onClick={setShow3}></Trash3>
         </p>
         <h3 style={{ fontSize: "16px", fontWeight: "500" }} className=" mb-2">

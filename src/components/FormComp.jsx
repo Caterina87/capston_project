@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Col, Container, FloatingLabel, FormCheck, Image, Row } from "react-bootstrap";
 import { Check2Square } from "react-bootstrap-icons";
 import Alert from "react-bootstrap/Alert";
@@ -9,8 +9,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { newAppointment } from "../redux/action";
 
 const FormComp = () => {
+  const [validated, setValidated] = useState(false);
   const dispatch = useDispatch();
-  const savedAppointment = useSelector((state) => state.appointmentReducer.savedAppointment);
+  const [savedAppointment, setSavedAppointment] = useState(false);
 
   const [appointment, setAppointment] = useState({
     name: "",
@@ -24,6 +25,33 @@ const FormComp = () => {
 
   const handleChange = (propertyName, propertyValue) => {
     setAppointment({ ...appointment, [propertyName]: propertyValue });
+  };
+
+  // useEffect(() => {
+  //   console.log("prova" + validated);
+  // }, []);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.stopPropagation();
+      setSavedAppointment(false);
+      setValidated(true);
+    } else {
+      dispatch(newAppointment(appointment));
+      setSavedAppointment(true);
+      setValidated(false);
+      setAppointment({
+        name: "",
+        suranme: "",
+        email: "",
+        phone: "",
+        object: "",
+        description: "",
+        type: "",
+      });
+    }
   };
 
   return (
@@ -43,7 +71,7 @@ const FormComp = () => {
         </div>
         <Row>
           <Col className="d-flex justify-content-center">
-            <Form className="my-5">
+            <Form className="my-5" noValidate validated={validated} onSubmit={handleSubmit}>
               {savedAppointment && (
                 <Alert className="text-center" key="success" variant="success">
                   Richiesta inviata con successo!
@@ -145,23 +173,7 @@ const FormComp = () => {
               ></FormCheck>
               <FormCheck inline type="radio" value="preventivo" name="group1" label="Preventivo gratuito"></FormCheck>
               <br />
-              <Button
-                className="mt-5"
-                variant="secondary"
-                onClick={(e) => {
-                  dispatch(newAppointment(appointment));
-                  e.preventDefault();
-                  setAppointment({
-                    name: "",
-                    suranme: "",
-                    email: "",
-                    phone: "",
-                    object: "",
-                    description: "",
-                    type: "",
-                  });
-                }}
-              >
+              <Button type="submit" className="mt-5" variant="secondary">
                 Invia la richiesta
               </Button>
             </Form>
