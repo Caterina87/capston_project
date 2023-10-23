@@ -26,7 +26,7 @@ const ArticleListAdmin = (props) => {
     id: "",
     title: "",
     data: "",
-    img: "../assets/pexels-taha-samet-arslan-7781900.jpg",
+    img: "pexels-taha-samet-arslan-7781900.jpg",
     description: "",
     fonte: "",
   });

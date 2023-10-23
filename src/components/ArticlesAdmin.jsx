@@ -15,12 +15,19 @@ const ArticlesAdmin = () => {
   const articles = useSelector((state) => state.getArticles?.content);
   const [show2, setShow2] = useState(false);
   const [saved, setSaved] = useState(false);
+  const [selectedArticle, setSelectedArticle] = useState(false);
+  const articleBlank = {
+    id: "",
+    title: "",
+    data: "",
+    img: "pexels-taha-samet-arslan-7781900.jpg",
+    description: "",
+    fonte: "",
+  };
 
   useEffect(() => {
     dispatch(getArticlesFetch());
   }, []);
-
-  const [selectedArticle, setSelectedArticle] = useState(false);
 
   const handleArticle = (article) => {
     setSelectedArticle(article);
@@ -127,8 +134,9 @@ const ArticlesAdmin = () => {
                   variant="outline-secondary"
                   onClick={() => {
                     setShow2(false);
-                    setSaved(true);
+                    setSaved(false);
                     dispatch(getArticlesFetch());
+                    setNewArticle(articleBlank);
                   }}
                 >
                   Chiudi
@@ -140,6 +148,7 @@ const ArticlesAdmin = () => {
                     e.preventDefault();
                     setSaved(true);
                     dispatch(getArticlesFetch());
+                    setNewArticle(articleBlank);
                   }}
                 >
                   Inserisci nuovo articolo
