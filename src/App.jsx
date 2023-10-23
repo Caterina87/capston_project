@@ -9,8 +9,9 @@ import FormComp from "./components/FormComp";
 import CardDetails from "./components/CardDetails";
 import ArticleComp from "./components/ArticlesComp";
 import Login from "./components/Login";
-import ArticlesAdmin from "./components/ArticlesAdmin";
+
 import Register from "./components/Register";
+import ArticlesAdmin from "./components/AdminPage/ArticlesAdmin";
 
 function App() {
   return (

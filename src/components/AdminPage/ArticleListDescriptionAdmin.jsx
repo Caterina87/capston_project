@@ -1,5 +1,6 @@
+//import { useEffect } from "react";
 import { Container, Image } from "react-bootstrap";
-import { useSelector } from "react-redux";
+//import { useSelector } from "react-redux";
 
 const ArticleListDescriptionAdmin = (props) => {
   //const isArticleSelected = useSelector((state) => state.getArticles.selectedArticle);
@@ -7,6 +8,7 @@ const ArticleListDescriptionAdmin = (props) => {
   function createMarkup() {
     return { __html: props.article?.description };
   }
+  // useEffect(() => {}, [isArticleSelected]);
 
   return (
     <Container>

@@ -8,7 +8,7 @@ const ArticleList = (props) => {
   return (
     <Container
       className={
-        isArticleSelected.id === props.article.id ? "d-flex  my-2 p-2 articleSelectedClass" : "d-flex  my-2 p-2"
+        isArticleSelected?.id === props.article.id ? "d-flex  my-2 p-2 articleSelectedClass" : "d-flex  my-2 p-2"
       }
     >
       <div>

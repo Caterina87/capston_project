@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { Alert, Button, Col, Container, Form, Modal } from "react-bootstrap";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import ArticleListAdmin from "./ArticleListAdmin";
-import ArticleListDescriptionAdmin from "./ArticleListDescription";
+import { useLocation, useNavigate } from "react-router-dom";
+
 import { useDispatch, useSelector } from "react-redux";
-import { SELECTED_ARTICLE, getArticlesFetch, saveNewArticle } from "../redux/action";
+import { SELECTED_ARTICLE, getArticlesFetch, saveNewArticle } from "../../redux/action";
+import ArticleListAdmin from "./ArticleListAdmin";
+import ArticleListDescriptionAdmin from "../ArticleListDescription";
 
 const ArticlesAdmin = () => {
-  const [displayusername, displayusernameupdate] = useState("");
   const [showmenu, showmenuupdateupdate] = useState(false);
   const usenavigate = useNavigate();
   const location = useLocation();
@@ -42,9 +42,6 @@ const ArticlesAdmin = () => {
       let username = sessionStorage.getItem("username");
       if (username === "" || username === null) {
         usenavigate("/login");
-        //displayusernameupdate(username);
-      } else {
-        displayusernameupdate(username);
       }
     }
   }, [location]);
@@ -167,9 +164,6 @@ const ArticlesAdmin = () => {
                   <ArticleListAdmin article={article} />
                 </div>
               ))}
-            {/* <p>
-              <Link to={"/login"}>Logout</Link>
-            </p> */}
             <div className="ms-3 line-clamp my-5 text-end">
               <Button variant="secondary" className="align-end" onClick={setShow2}>
                 Nuovo articolo

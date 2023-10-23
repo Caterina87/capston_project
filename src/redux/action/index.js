@@ -133,6 +133,8 @@ export const deleteArticle = (id) => {
     });
     if (response.ok) {
       dispatch({ type: DELETE_ARTICLE_OK, payload: id });
+      // const pippo = getArticlesFetch();
+      // dispatch({ type: SELECTED_ARTICLE, payload: pippo[0] });
     }
   };
 };
