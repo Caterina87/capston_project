@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getLawyerFetch } from "../redux/action";
 import { useEffect } from "react";
-import { FileText, Pen, PersonVideo3, Telephone } from "react-bootstrap-icons";
+import { EnvelopeAt, FileText, Mailbox, Pen, PersonVideo3, Telephone } from "react-bootstrap-icons";
 
 const CardDetails = () => {
   const lawyer = useSelector((state) => state.getLawyers.lawyer);
@@ -63,6 +63,11 @@ const CardDetails = () => {
                 </li>
               )}
             </ul>
+            <h6 className="mt-5 mb-3">Contatti</h6>
+            <p>
+              {" "}
+              <EnvelopeAt className="me-2 fs-5 text-danger"> </EnvelopeAt> {lawyer.mail}
+            </p>
           </Col>
         </Row>
       </Container>

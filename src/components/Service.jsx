@@ -10,7 +10,7 @@ const Service = () => {
         </div>
         <div className="col-12 col-lg-6 align-self-center">
           <h3 className="mb-4">Prenota una consulenza personalizzata</h3>
-          <ul className="list-unstyled lh-lg  ">
+          <ul className="list-unstyled lh-lg">
             <li>
               {" "}
               <Check2Circle className="me-2 fs-4 text-success"></Check2Circle>Seleziona la modalità di consulenza che

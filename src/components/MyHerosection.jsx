@@ -14,7 +14,7 @@ const MyHeroSection = () => {
             Scegli il professionista che preferisci in base a ciò di cui hai bisogno e richiedi un preventivo gratuito
             oppure una consulenza in tempi rapidi.
           </p>
-          <div className="mb-5 sm-mb-o mt-5">
+          <div className="mb-5 sm-mb-0 mt-5">
             <Button className="mb-3 sm-mb-0" variant="secondary me-2" onClick={() => navigate("/consulenza")}>
               Richiedi una consulenza
             </Button>{" "}

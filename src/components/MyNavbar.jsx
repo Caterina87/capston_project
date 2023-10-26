@@ -29,7 +29,7 @@ const MyNavbar = () => {
           </Nav>
           <Nav.Link className="text-success ms-auto " to="#link" onClick={() => navigate("/login")}>
             <Button variant="secondary fw-semibold">
-              Accedi <PersonFill className="ms-1 fs-4 text-white align-top"></PersonFill>
+              Area Riservata <PersonFill className="ms-1 fs-4 text-white align-top"></PersonFill>
             </Button>
           </Nav.Link>
         </Navbar.Collapse>

@@ -59,7 +59,7 @@ const Login = () => {
           <form onSubmit={ProceedLogin} className="container mb-5">
             <div className="card">
               <div className="card-header">
-                <h2 className="fw-semibold">Accesso Area Privata </h2>
+                <h2 className="fw-semibold">Accesso Area Riservata </h2>
               </div>
               <div className="card-body">
                 <div className="form-group mb-2">
