@@ -1,5 +1,5 @@
 // Url delle Fetch
-const URL_LAWYERS = "https://my-api-epicode-ebc661be151d.herokuapp.com/lawyers";
+const URL_LAWYERS = "https://my-api-epicode-ebc661be151d.herokuapp.com/lawers";
 const URL_LAWYER = "https://my-api-epicode-ebc661be151d.herokuapp.com/lawyers?id=";
 const URL_ARTICLES = "https://my-api-epicode-ebc661be151d.herokuapp.com/articles";
 const URL_APPOINTMENTS = "https://my-api-epicode-ebc661be151d.herokuapp.com/appointments";
@@ -21,17 +21,23 @@ export const NEW_ARTICLE = "NEW_ARTICLE";
 export const NEW_ARTICLE_OK = "NEW_ARTICLE_OK";
 export const DELETE_ARTICLE = "DELETE_ARTICLE";
 export const DELETE_ARTICLE_OK = "DELETE_ARTICLE_OK";
+export const ERROR_FETCH = "ERROR_FETCH";
 
 // Action
 // Lista di tutti gli avvocati
 export const getLawyersFetch = () => {
   return async (dispatch, getState) => {
-    const response = await fetch(URL_LAWYERS);
-    if (response.ok) {
-      const data = await response.json();
-      dispatch({ type: GET_LAWYERS, payload: data });
-      dispatch({ type: NEW_APPOINTMENT_KO, payload: false });
-      //dispatch({ type: STOP_LOADING_LAWYERS, payload: false });
+    try {
+      const response = await fetch(URL_LAWYERS);
+      if (response.ok) {
+        const data = await response.json();
+        dispatch({ type: GET_LAWYERS, payload: data });
+        dispatch({ type: NEW_APPOINTMENT_KO, payload: false });
+      }
+    } catch (err) {
+      dispatch({ type: ERROR_FETCH, payload: "errore nella fetch" });
+    } finally {
+      //dispatch({ type: ERROR_FETCH, payload: "finally nella fetch" });
     }
   };
 };
@@ -39,12 +45,18 @@ export const getLawyersFetch = () => {
 // Chiamata per un specifico avvocato (i)
 export const getLawyerFetch = (id) => {
   return async (dispatch, getState) => {
-    const response = await fetch(URL_LAWYER + id);
-    if (response.ok) {
-      const data = await response.json();
-      dispatch({ type: GET_LAWYER, payload: data });
-      dispatch({ type: NEW_APPOINTMENT_KO, payload: false });
-      // dispatch({ type: STOP_LOADING_LAWYER, payload: false });
+    try {
+      const response = await fetch(URL_LAWYER + id);
+      if (response.ok) {
+        const data = await response.json();
+        dispatch({ type: GET_LAWYER, payload: data });
+        dispatch({ type: NEW_APPOINTMENT_KO, payload: false });
+        // dispatch({ type: STOP_LOADING_LAWYER, payload: false });
+      }
+    } catch (err) {
+      dispatch({ type: ERROR_FETCH, payload: "errore nella fetch" });
+    } finally {
+      //dispatch({ type: ERROR_FETCH, payload: "finally nella fetch" });
     }
   };
 };
@@ -52,12 +64,18 @@ export const getLawyerFetch = (id) => {
 // Lista di tutti gli articoli
 export const getArticlesFetch = () => {
   return async (dispatch, getState) => {
-    const response = await fetch(URL_ARTICLES);
-    if (response.ok) {
-      const data = await response.json();
-      dispatch({ type: GET_ARTICLES, payload: data });
-      dispatch({ type: NEW_APPOINTMENT_KO, payload: false });
-      //dispatch({ type: STOP_LOADING_ARTICLES, payload: false });
+    try {
+      const response = await fetch(URL_ARTICLES);
+      if (response.ok) {
+        const data = await response.json();
+        dispatch({ type: GET_ARTICLES, payload: data });
+        dispatch({ type: NEW_APPOINTMENT_KO, payload: false });
+        //dispatch({ type: STOP_LOADING_ARTICLES, payload: false });
+      }
+    } catch (err) {
+      dispatch({ type: ERROR_FETCH, payload: "errore nella fetch" });
+    } finally {
+      //dispatch({ type: ERROR_FETCH, payload: "finally nella fetch" });
     }
   };
 };
@@ -65,16 +83,21 @@ export const getArticlesFetch = () => {
 // Salvataggio Richiesta di una consulenza
 export const newAppointment = (appointment) => {
   return async (dispatch, getState) => {
-    const response = await fetch(URL_APPOINTMENTS, {
-      method: "POST",
-      body: JSON.stringify(appointment),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    if (response.ok) {
-      // dispatch({ type: NEW_APPOINTMENT, payload: appointment });
-      dispatch({ type: NEW_APPOINTMENT_OK, payload: true });
+    try {
+      const response = await fetch(URL_APPOINTMENTS, {
+        method: "POST",
+        body: JSON.stringify(appointment),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (response.ok) {
+        dispatch({ type: NEW_APPOINTMENT_OK, payload: true });
+      }
+    } catch (err) {
+      dispatch({ type: ERROR_FETCH, payload: "errore nella fetch" });
+    } finally {
+      //dispatch({ type: ERROR_FETCH, payload: "finally nella fetch" });
     }
   };
 };
@@ -82,28 +105,38 @@ export const newAppointment = (appointment) => {
 // Chiamata per un specifico user (i)
 export const getUser = (username) => {
   return async (dispatch, getState) => {
-    const response = await fetch(URL_USER + username);
-    if (response.ok) {
-      const data = await response.json();
-      dispatch({ type: GET_USER, payload: data });
-      //dispatch({ type: NEW_APPOINTMENT_KO, payload: false });
-      // dispatch({ type: STOP_LOADING_LAWYER, payload: false });
+    try {
+      const response = await fetch(URL_USER + username);
+      if (response.ok) {
+        const data = await response.json();
+        dispatch({ type: GET_USER, payload: data });
+      }
+    } catch (err) {
+      dispatch({ type: ERROR_FETCH, payload: "errore nella fetch" });
+    } finally {
+      //dispatch({ type: ERROR_FETCH, payload: "finally nella fetch" });
     }
   };
 };
 // Modifica di uno specifico articolo lato admin
 export const articleMod = (article) => {
   return async (dispatch, getState) => {
-    const response = await fetch(URL_ARTICLES + "/" + article.id, {
-      method: "PUT",
-      body: JSON.stringify(article),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    if (response.ok) {
-      //dispatch({ type: DELETE_MY_EXPERIENCES, payload: experiences._id });
-      //dispatch({ type: POST_MY_EXPERIENCES, payload: experiences });
+    try {
+      const response = await fetch(URL_ARTICLES + "/" + article.id, {
+        method: "PUT",
+        body: JSON.stringify(article),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (response.ok) {
+        //dispatch({ type: DELETE_MY_EXPERIENCES, payload: experiences._id });
+        //dispatch({ type: POST_MY_EXPERIENCES, payload: experiences });
+      }
+    } catch (err) {
+      dispatch({ type: ERROR_FETCH, payload: "errore nella fetch" });
+    } finally {
+      //dispatch({ type: ERROR_FETCH, payload: "finally nella fetch" });
     }
   };
 };
@@ -134,7 +167,7 @@ export const deleteArticle = (id) => {
     if (response.ok) {
       dispatch({ type: DELETE_ARTICLE_OK, payload: id });
       // const pippo = getArticlesFetch();
-      // dispatch({ type: SELECTED_ARTICLE, payload: pippo[0] });
+      dispatch({ type: SELECTED_ARTICLE, payload: null });
     }
   };
 };

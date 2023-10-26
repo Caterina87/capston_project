@@ -1,9 +1,10 @@
-import { GET_LAWYERS, GET_LAWYER, STOP_LOADING_LAWYERS } from "../action";
+import { GET_LAWYERS, GET_LAWYER, STOP_LOADING_LAWYERS, ERROR_FETCH } from "../action";
 
 const initialState = {
   content: [],
   isloading: true,
   lawyer: null,
+  error: "",
 };
 
 const getLawyers = (state = initialState, action) => {
@@ -22,6 +23,11 @@ const getLawyers = (state = initialState, action) => {
       return {
         ...state,
         isloading: false,
+      };
+    case ERROR_FETCH:
+      return {
+        ...state,
+        error: action.payload,
       };
 
     default:

@@ -7,12 +7,15 @@ import { useNavigate } from "react-router-dom";
 const CardComp = () => {
   const lawyers = useSelector((state) => state.getLawyers.content);
   const isLoading = useSelector((state) => state.getLawyers.isLoading);
+  const error = useSelector((state) => state.getLawyers.error);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   useEffect(() => {
+    console.log("error " + error);
     dispatch(getLawyersFetch());
-  }, []);
+  }, [error]);
 
   return (
     <Container>
