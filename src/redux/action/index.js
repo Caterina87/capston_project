@@ -152,7 +152,6 @@ export const saveNewArticle = (article) => {
       },
     });
     if (response.ok) {
-      // dispatch({ type: NEW_ARTICLE, payload: article });
       dispatch({ type: NEW_ARTICLE_OK, payload: true });
     }
   };
@@ -166,7 +165,6 @@ export const deleteArticle = (id) => {
     });
     if (response.ok) {
       dispatch({ type: DELETE_ARTICLE_OK, payload: id });
-      // const pippo = getArticlesFetch();
       dispatch({ type: SELECTED_ARTICLE, payload: null });
     }
   };

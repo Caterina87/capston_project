@@ -1,8 +1,6 @@
 import { Container, Image } from "react-bootstrap";
 
 const ArticleListDescriptionAdmin = (props) => {
-  //const isArticleSelected = useSelector((state) => state.getArticles.selectedArticle);
-
   function createMarkup() {
     return { __html: props.article?.description };
   }

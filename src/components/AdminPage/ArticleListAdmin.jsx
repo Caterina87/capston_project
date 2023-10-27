@@ -5,10 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { articleMod, deleteArticle, getArticlesFetch } from "../../redux/action";
 
 const ArticleListAdmin = (props) => {
-  //const articles = useSelector((state) => state.getArticles?.content);
   const isArticleSelected = useSelector((state) => state.getArticles.selectedArticle);
   const [show, setShow] = useState(false);
-  //const [show2, setShow2] = useState(false);
+
   const [show3, setShow3] = useState(false);
   const dispatch = useDispatch();
   const [saved, setSaved] = useState(false);
@@ -44,7 +43,7 @@ const ArticleListAdmin = (props) => {
 
   const handleClose = () => {
     setShow(false);
-    //setShow2(false);
+
     dispatch(getArticlesFetch());
   };
 

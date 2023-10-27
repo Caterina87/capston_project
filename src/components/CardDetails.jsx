@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getLawyerFetch } from "../redux/action";
 import { useEffect } from "react";
-import { EnvelopeAt, FileText, Mailbox, Pen, PersonVideo3, Telephone } from "react-bootstrap-icons";
+import { EnvelopeAt, FileText, Pen, PersonVideo3, Telephone } from "react-bootstrap-icons";
 
 const CardDetails = () => {
   const lawyer = useSelector((state) => state.getLawyers.lawyer);
